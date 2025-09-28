@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Grado Universitario en Ingeniería Informática",
+    "type": "Grado",
+    "program": "Grado Universitario en Ingeniería Informática (GUII)",
+    "course": "General",
+    "language": "ES",
+    "description": "Comunidad con grupos de asignaturas, general y canal de avisos",
+    "platform": "WhatsApp",
+    "invite": "https://chat.whatsapp.com/ABCDEFGHIJKLMNOPQRST",
+    "admin": "Anon",
+    "tags": ["GUII", "EIMT", "Informática"]
+  },
+  {
+    "title": "Máster Universitario en Ingeniería Informática",
+    "type": "Máster",
+    "program": "Máster Universitario en Ingeniería Informática (MUII)",
+    "course": "General",
+    "language": "ES",
+    "description": "Comunidad con grupos de asignaturas, general y canal de avisos",
+    "platform": "WhatsApp",
+    "invite": "https://chat.whatsapp.com/UVWXYZABCDEFGHIJKLMN",
+    "admin": "Anon",
+    "tags": ["MUII", "EIMT", "Informática"]
+  },
+  {
+    "title": "Grado de Técnicas de Aplicaciones de Software",
+    "type": "Grado",
+    "program": "Técnicas de Aplicaciones de Software",
+    "course": "General",
+    "language": "ES",
+    "description": "Grupo de Telegram para el grado de TAS",
+    "platform": "Telegram",
+    "invite": "https://t.me/desarrollosoftwareuoc",
+    "admin": "",
+    "tags": ["TAS", "Software"]
+  },
+  {
+    "title": "Grado Multimedia",
+    "type": "Grado",
+    "program": "Multimedia",
+    "course": "General",
+    "language": "ES",
+    "description": "Canal general de Multimedia",
+    "platform": "Telegram",
+    "invite": "https://t.me/joinchat/8vkQF5zzJ382MTk0",
+    "admin": "",
+    "tags": ["Multimedia"]
+  },
+  {
+    "title": "Doble Grado ADE e Ingeniería Informática",
+    "type": "Grado",
+    "program": "ADE + Ingeniería Informática",
+    "course": "General",
+    "language": "ES",
+    "description": "Grupo para estudiantes del doble grado ADE/Ing. Informática",
+    "platform": "Telegram",
+    "invite": "https://t.me/UOC_ADE_INGENIERIAINFORMATICA",
+    "admin": "",
+    "tags": ["ADE", "Informática"]
+  },
+  {
+    "title": "Máster Ciencia de Datos",
+    "type": "Máster",
+    "program": "Ciencia de Datos",
+    "course": "General",
+    "language": "ES",
+    "description": "Grupo para estudiantes del máster en Ciencia de Datos",
+    "platform": "Telegram",
+    "invite": "https://t.me/cienciadatosUOC",
+    "admin": "",
+    "tags": ["Ciencia de Datos", "Data"]
+  },
+  {
+    "title": "Telecos",
+    "type": "Grado",
+    "program": "Telecomunicaciones",
+    "course": "General",
+    "language": "ES",
+    "description": "Grupo de estudiantes de Telecomunicaciones",
+    "platform": "Telegram",
+    "invite": "https://t.me/joinchat/Y_Y9rmaG-CplNjM0",
+    "admin": "",
+    "tags": ["Telecos"]
+  },
+  {
+    "title": "Máster Ciberseguridad y Privacidad",
+    "type": "Máster",
+    "program": "Ciberseguridad y Privacidad",
+    "course": "General",
+    "language": "ES",
+    "description": "Comunidad de estudiantes del máster de Ciberseguridad",
+    "platform": "Telegram",
+    "invite": "https://t.me/joinchat/dhy5XPQ5Hn00NWVk",
+    "admin": "",
+    "tags": ["Ciberseguridad", "Privacidad"]
+  },
+  {
+    "title": "ADE",
+    "type": "Grado",
+    "program": "Administración y Dirección de Empresas (ADE)",
+    "course": "General",
+    "language": "ES",
+    "description": "Grupo general de ADE",
+    "platform": "Telegram",
+    "invite": "https://t.me/+zcXqFdWpxjdmYjJk",
+    "admin": "",
+    "tags": ["ADE"]
+  }
+]

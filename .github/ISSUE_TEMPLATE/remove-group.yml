@@ -1,0 +1,50 @@
+name: "Solicitud de baja de grupo"
+description: Pide retirar un grupo publicado en el directorio
+labels: ["baja", "grupos"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por informarnos. Con este formulario puedes pedir la retirada de un grupo del directorio.
+        Por favor, indica claramente el título y/o el enlace del grupo a eliminar.
+
+  - type: input
+    id: title
+    attributes:
+      label: Título del grupo
+      description: Nombre exacto tal como aparece en el directorio
+      placeholder: Ej. "Grado de Psicología — 2º — ES"
+    validations:
+      required: true
+
+  - type: input
+    id: invite
+    attributes:
+      label: Enlace de invitación
+      description: Copia el enlace del grupo (WhatsApp o Telegram) para identificarlo con precisión
+      placeholder: https://chat.whatsapp.com/XXXXXXXXXXXXXXX o https://t.me/XXXX
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Motivo de la baja
+      placeholder: Ej. El grupo ya no existe, soy el admin y no quiero que figure, etc.
+    validations:
+      required: true
+
+  - type: input
+    id: contact
+    attributes:
+      label: Tu contacto (opcional)
+      description: Email o alias para confirmar la retirada si fuera necesario
+      placeholder: correo@ejemplo.com
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmación
+      options:
+        - label: Declaro que soy administrador/a del grupo o tengo autorización para solicitar su retirada.
+          required: true

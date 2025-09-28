@@ -1,0 +1,25 @@
+name: Validate groups.json
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'groups.json'
+      - 'schema.json'
+  push:
+    paths:
+      - 'groups.json'
+      - 'schema.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm i -g ajv-cli@5
+      - run: ajv validate -s schema.json -d groups.json --errors=text

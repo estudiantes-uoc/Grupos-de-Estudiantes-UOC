@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grupos de estudiantes UOC</title>
+  <meta name="description" content="Directorio colaborativo de grupos de WhatsApp y Telegram de la UOC" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="assets/uoc.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<div class="container">
+<header class="header">
+  <div class="brand">
+    <img src="assets/uoc.png" alt="UOC" width="57" height="42" />
+    <h1>Grupos de estudiantes UOC</h1>
+  </div>
+  <a class="link" href="https://github.com/estudiantes-uoc/web" target="_blank" rel="noopener">Contribuir en GitHub</a>
+</header>
+
+<section class="card">
+  <div class="controls">
+    <input class="input" id="q" placeholder="Buscar por título o tags…" />
+    <select id="type">
+      <option value="">Tipo</option>
+      <option>Grado</option>
+      <option>Máster</option>
+    </select>
+    <select id="platform">
+      <option value="">Plataforma</option>
+      <option>WhatsApp</option>
+      <option>Telegram</option>
+    </select>
+  </div>
+  <div id="list" class="grid" aria-live="polite"></div>
+  <div id="empty" class="footer" hidden>No hay resultados con los filtros aplicados.</div>
+</section>
+
+<p class="footer">
+  Solo se listan grupos compartidos por sus administradores. Reporta incidencias mediante Issues.
+</p>
+</div>
+
+<script>
+const els = {
+  q: document.getElementById('q'),
+  type: document.getElementById('type'),
+  platform: document.getElementById('platform'),
+  list: document.getElementById('list'),
+  empty: document.getElementById('empty')
+};
+
+let data = [];
+
+fetch('groups.json', { cache: 'no-store' })
+  .then(r => r.json())
+  .then(json => { data = json; render(); })
+  .catch(() => { els.empty.hidden = false; els.empty.textContent = 'No se pudo cargar groups.json'; });
+
+[els.q, els.type, els.platform].forEach(el => el.addEventListener('input', render));
+
+function render(){
+  const q = els.q.value.toLowerCase().trim();
+  const t = els.type.value;
+  const plat = els.platform.value;
+
+  const filtered = data.filter(g => {
+    const hayQ = !q || `${g.title} ${(g.tags||[]).join(' ')}`.toLowerCase().includes(q);
+    const hayT = !t || g.type === t;
+    const hayPlat = !plat || g.platform === plat;
+    return hayQ && hayT && hayPlat;
+  });
+
+  els.list.innerHTML = '';
+  if (!filtered.length){ els.empty.hidden = false; return; }
+  els.empty.hidden = true;
+
+  for(const g of filtered){
+    const div = document.createElement('div');
+    div.className = 'card group';
+    div.innerHTML = `
+      <span class="badge">${g.type}</span>
+      <span class="badge">${g.platform||'—'}</span>
+      <h3>${esc(g.title)}</h3>
+      <p>${esc(g.description||'')}</p>
+      <p>${(g.tags||[]).map(t=>`<span class='badge'>${esc(t)}</span>`).join(' ')}</p>
+      <p>${g.admin? 'Admin: '+esc(g.admin):''}</p>
+      <a class="link" href="${escurl(g.invite)}" target="_blank" rel="nofollow noopener">Abrir en ${g.platform||'grupo'}</a>
+    `;
+    els.list.appendChild(div);
+  }
+}
+
+function esc(s){ return (s||'').toString().replace(/[&<>"]/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[m])); }
+function escurl(s){ try{ new URL(s); return s; }catch{ return '#'; } }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "UOC WhatsApp Group",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": ["title", "type", "program", "invite"],
+        "properties": {
+            "title": { "type": "string", "minLength": 3 },
+            "type": { "type": "string", "enum": ["Grado", "Máster"] },
+            "program": { "type": "string", "minLength": 2 },
+            "course": { "type": "string" },
+            "language": { "type": "string", "pattern": "^(ES|CA|EN)$" },
+            "description": { "type": "string" },
+            "invite": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://chat\\.whatsapp\\.com/[A-Za-z0-9]+$"
+                },
+            "admin": { "type": "string" },
+            "contact": { "type": "string", "format": "email" },
+            "tags": {
+                "type": "array",
+                "items": { "type": "string" }
+            }
+        },
+        "additionalProperties": false
+    }
+}

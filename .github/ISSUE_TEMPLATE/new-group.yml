@@ -1,0 +1,71 @@
+name: "Nueva alta de grupo"
+description: Solicita la publicación de un grupo de WhatsApp
+labels: ["alta", "grupos"]
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Gracias por colaborar. Asegúrate de tener permiso de la persona administradora del grupo.
+  - type: input
+    id: title
+    attributes:
+      label: Título del grupo
+      description: 'Ej. "Grado de Psicología — 2º — ES"'
+      placeholder: "Grado/Máster — curso — idioma"
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Tipo de estudio
+      options:
+        - Grado
+        - Máster
+    validations:
+      required: true
+  - type: input
+    id: program
+    attributes:
+      label: Programa (nombre oficial)
+      placeholder: "Psicología / Ingeniería Informática / MUIA / etc."
+    validations:
+      required: true
+  - type: input
+    id: course
+    attributes:
+      label: Curso/Nivel
+      placeholder: '1º, 2º, 3º, 4º; o "General"'
+  - type: input
+    id: language
+    attributes:
+      label: Idioma principal
+      placeholder: "ES / CA / EN"
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción breve
+      placeholder: "Propósito del grupo, normas, etc."
+  - type: input
+    id: invite
+    attributes:
+      label: Enlace de invitación de WhatsApp
+      placeholder: "https://chat.whatsapp.com/XXXXXXXXXXXXXXX"
+    validations:
+      required: true
+  - type: input
+    id: admin
+    attributes:
+      label: Admin (opcional)
+      placeholder: "Alias público del admin del grupo"
+  - type: input
+    id: contact
+    attributes:
+      label: Contacto del admin (opcional)
+      placeholder: "correo@ejemplo.com"
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consentimiento
+      options:
+        - label: "Declaro que soy admin o tengo permiso explícito del admin para publicar este enlace."
+          required: true

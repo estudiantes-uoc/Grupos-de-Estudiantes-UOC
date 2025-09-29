@@ -82,10 +82,9 @@ function render(){
     div.innerHTML = `
       <span class="badge">${g.type}</span>
       <span class="badge">${g.platform||'—'}</span>
+      <p>${(g.tags||[]).map(t=>`<span class='badge'>${esc(t)}</span>`).join(' ')}</p>
       <h3>${esc(g.title)}</h3>
       <p>${esc(g.description||'')}</p>
-      <p>${(g.tags||[]).map(t=>`<span class='badge'>${esc(t)}</span>`).join(' ')}</p>
-      <p>${g.admin? 'Admin: '+esc(g.admin):''}</p>
       <a class="link" href="${escurl(g.invite)}" target="_blank" rel="nofollow noopener">Abrir en ${g.platform||'grupo'}</a>
     `;
     els.list.appendChild(div);
@@ -97,4 +96,5 @@ function escurl(s){ try{ new URL(s); return s; }catch{ return '#'; } }
 </script>
 </body>
 </html>
+
 
